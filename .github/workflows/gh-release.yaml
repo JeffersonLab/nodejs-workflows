@@ -1,0 +1,37 @@
+name: GitHub Release
+
+on:
+  workflow_call:
+    inputs:
+      files:
+        required: false
+        type: string
+    outputs:
+      semvertag:
+        description: "The semantic versioning tag name created"
+        value: ${{ jobs.release.outputs.semvertag }}
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    outputs:
+      semvertag: ${{ steps.getver.outputs.semvertag }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+      - name: Read version file
+        id: getver
+        run: |
+          VER=$(cat VERSION)
+          echo "VERSION=v$VER" >> $GITHUB_ENV
+          echo "semvertag=v$VER" >> $GITHUB_OUTPUT
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          tag_name: ${{ env.VERSION }}
+          files: ${{ inputs.files }}
