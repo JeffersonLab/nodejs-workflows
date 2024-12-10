@@ -5,7 +5,7 @@ GitHub Action NodeJS workflows
 |-----------------------------------------------------------------------------------------------------------------------------|----------------------------------|
 | [gh-pages-publish.yaml](https://github.com/JeffersonLab/nodejs-workflows/blob/main/.github/workflows/gh-pages-publish.yaml) | Publish API docs to GitHub Pages |
 | [gh-release.yaml](https://github.com/JeffersonLab/nodejs-workflows/blob/main/.github/workflows/gh-release.yaml)             | Create a GitHub Release          |
-| [npm-publish.yaml](https://github.com/JeffersonLab/nodejs-workflows/blob/main/.github/workflows/npm-publish.yaml)           | Publish an artifact on PyPi      |
+| [npm-publish.yaml](https://github.com/JeffersonLab/nodejs-workflows/blob/main/.github/workflows/npm-publish.yaml)           | Publish an artifact on NPM       |
 | [unit-ci.yaml](https://github.com/JeffersonLab/nodejs-workflows/blob/main/.github/workflows/unit-ci.yaml)                   | Build and run Unit tests         |
 
 ## Workflow Updates
